@@ -29,10 +29,6 @@
   "projects": {
     "lotr-books": {
       "tags": []
-    },
-    "lotr-books-e2e": {
-      "tags": [],
-      "implicitDependencies": ["lotr-books"]
     }
   }
 }

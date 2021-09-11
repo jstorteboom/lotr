@@ -93,36 +93,10 @@
           }
         }
       }
-    },
-    "lotr-books-e2e": {
-      "root": "apps/lotr-books-e2e",
-      "sourceRoot": "apps/lotr-books-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/lotr-books-e2e/cypress.json",
-            "devServerTarget": "lotr-books:serve:development",
-            "tsConfig": "apps/lotr-books-e2e/tsconfig.json"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "lotr-books:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/lotr-books-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
     }
   },
   "cli": {
+    "analytics": false,
     "defaultCollection": "@nrwl/angular",
     "packageManager": "npm"
   },

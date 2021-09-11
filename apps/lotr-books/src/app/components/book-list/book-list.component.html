@@ -1,0 +1,17 @@
+<p>Lord of the Rings books</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books$ | async as books; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ book._id }}</td>
+            <td>{{ book.name }}</td>
+        </tr>
+    </tbody>
+</table>
