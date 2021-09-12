@@ -5,11 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BookListComponent } from './components/book-list/book-list.component';
+import { BookListComponent, DashboardComponent, MenuComponent } from './components';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
 
+const components = [
+  BookListComponent, DashboardComponent, MenuComponent
+];
+
+const imports = [ 
+  NgbModule, 
+  HttpClientModule,
+  RouterModule.forRoot(routes)
+];
 @NgModule({
-  declarations: [AppComponent, BookListComponent],
-  imports: [BrowserModule, NgbModule, HttpClientModule],
+  declarations: [AppComponent, ...components],
+  imports: [BrowserModule, ... imports],
   providers: [],
   bootstrap: [AppComponent],
 })
