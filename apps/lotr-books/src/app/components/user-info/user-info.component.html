@@ -1,0 +1,14 @@
+<ul class="navbar-nav">
+    <li class="nav-item" *ngIf="(userContext.isSignedIn$ | async) === false else userInfoTemplate">
+        <a class="nav-link" [routerLink]="" (click)="signIn()">Sign in</a>
+    </li>
+    <ng-template #userInfoTemplate>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">{{ userInfo?.displayname }}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" [routerLink]="" click="signOut()">Sign out</a>
+            </div>
+        </li>
+    </ng-template>
+</ul>

@@ -8,6 +8,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookListComponent, DashboardComponent, MenuComponent } from './components';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { HeaderComponent } from './components/header/header.component';
+import { UserComponent } from './components/user-info/user-info.component';
 
 const components = [
   BookListComponent, DashboardComponent, MenuComponent
@@ -19,7 +21,7 @@ const imports = [
   RouterModule.forRoot(routes)
 ];
 @NgModule({
-  declarations: [AppComponent, ...components],
+  declarations: [AppComponent, ...components, HeaderComponent, UserComponent],
   imports: [BrowserModule, ... imports],
   providers: [],
   bootstrap: [AppComponent],
