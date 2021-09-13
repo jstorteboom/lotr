@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { BookListComponent, DashboardComponent } from "./components";
+import { SignInGuard } from "./guards/sign-in.guard";
 
 export const routes: Routes = [
     {
@@ -8,7 +9,8 @@ export const routes: Routes = [
     },
     {
         path: 'books',
-        component: BookListComponent
+        component: BookListComponent,
+        canActivate: [SignInGuard]
     },
     {
         path: '**',
