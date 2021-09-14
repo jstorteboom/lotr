@@ -9,6 +9,8 @@ import { UserInfo } from '../models';
 })
 export class UserContextService {
 
+  apiKey = '';
+
   isSignedIn$ = new BehaviorSubject<boolean>(false);
   userInfo$!: Observable<UserInfo | undefined>;
   
@@ -16,8 +18,12 @@ export class UserContextService {
 
     this.userInfo$ = authenticationService.signIn$
       .pipe(tap(userInfo => {
-        console.log(userInfo);
         this.isSignedIn$.next(userInfo !== undefined);
+        if(this.isSignedIn$.value) {
+          this.apiKey = '9gvz6TIvvcEyluNrBAES';
+        } else {
+          this.apiKey = '';
+        }
       }));
       
     setInterval(() => {
