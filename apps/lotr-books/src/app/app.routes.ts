@@ -13,6 +13,10 @@ export const routes: Routes = [
         canActivate: [SignInGuard]
     },
     {
+        path: 'characters',
+        loadChildren: () => import('./modules/character/character.module').then(m => m.CharacterModule)
+    },
+    {
         path: '**',
         redirectTo: 'dashboard'
     }

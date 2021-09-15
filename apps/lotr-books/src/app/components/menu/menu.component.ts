@@ -6,7 +6,8 @@ import { UserContextService } from '../../services';
 
 const menuItems = [
   { title: 'dashboard', route: [ 'dashboard' ] },
-  { title: 'books', route: [ 'books' ], requiresAuthentication: true }
+  { title: 'books', route: [ 'books' ], requiresAuthentication: true },
+  { title: 'characters', route: [ 'characters' ], requiresAuthentication: true }
 ]
 @Component({
   selector: 'lotr-menu',
