@@ -19,7 +19,7 @@
     <tbody>
         <tr *ngFor="let character of characters$ | async as characters; index as i">
             <th scope="row">{{ i + 1 }}</th>
-            <td>{{ character._id }}</td>
+            <td><a [routerLink]="[character._id]">{{ character._id }}</a></td>
             <td>{{ character.name }}</td>
             <td>{{ character.race }}</td>
             <td>{{ character.gender }}</td>

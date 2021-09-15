@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterListComponent } from './components';
+import { CharacterDetailComponent, CharacterListComponent } from './components';
 
 const routes: Routes = [
   {
     path: '',
-    component: CharacterListComponent
+    component: CharacterListComponent,
+  },
+  {
+    path: ':id',
+    component: CharacterDetailComponent
   }
 ];
 

@@ -10,7 +10,7 @@ import { CharacterListItem } from '../models';
   providedIn: 'root'
 })
 export class CharacterService {
-
+  
   private apiUrl!: string;
 
   constructor(
@@ -22,6 +22,12 @@ export class CharacterService {
   getCharacters(): Observable<CharacterListItem[]> {
     return this.httpClient.get<ApiResult<CharacterListItem>>(this.apiUrl).pipe(
       map(result => result.docs ?? [])
+    );
+  }
+
+  getCharacter(id: string): Observable<CharacterListItem> {
+    return this.httpClient.get<ApiResult<CharacterListItem>>(`${this.apiUrl}/${id}`).pipe(
+      map(result => result.docs ? result.docs[0] : <CharacterListItem>{})
     );
   }
 }
