@@ -1,0 +1,7 @@
+<h1>Character details</h1>
+<pre *ngIf="character$ | async as character; else noCharacter">
+    {{ character | json }}
+</pre>
+<ng-template #noCharacter>
+    No character was loaded.
+</ng-template>

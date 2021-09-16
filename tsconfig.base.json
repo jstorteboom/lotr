@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@lens/core/app": ["libs/core/app/src/index.ts"],
+      "@lens/core/lib": ["libs/core/lib/src/index.ts"],
+      "@lens/ui/bootstrap": ["libs/ui/bootstrap/src/index.ts"],
+      "@lens/ui/bootstrap/app": ["libs/ui/bootstrap-app/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

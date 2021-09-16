@@ -1,0 +1,35 @@
+<p>Lord of the Rings books</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Race</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Birth</th>
+            <th scope="col">Death</th>
+            <th scope="col">Spouse</th>
+            <th scope="col">Realm</th>
+            <th scope="col">Hair</th>
+            <th scope="col">Height</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let character of characters$ | async as characters; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td><a [routerLink]="[character._id]">{{ character._id }}</a></td>
+            <td>{{ character.name }}</td>
+            <td>{{ character.race }}</td>
+            <td>{{ character.gender }}</td>
+            <td>{{ character.birth }}</td>
+            <td>{{ character.death }}</td>
+            <td>{{ character.spouse }}</td>
+            <td>{{ character.realm }}</td>
+            <td>{{ character.hair }}</td>
+            <td>{{ character.height }}</td>
+            <td><a [href]="character.wikiUrl" target="_blank">more info</a></td>
+        </tr>
+    </tbody>
+</table>

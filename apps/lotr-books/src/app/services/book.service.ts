@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ApiResult } from '../models/api-result.model';
 import { BookListItem } from '../models/book-list-item.model';
 import { map } from 'rxjs/operators'
-import { SettingsService } from './settings.service';
+import { SettingsService } from '@lens/core/lib';
 
 @Injectable({
   providedIn: 'root'
