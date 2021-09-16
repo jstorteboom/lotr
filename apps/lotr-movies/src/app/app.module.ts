@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from '@lens/core/app';
+import { FullLayoutComponent } from '@lens/ui/bootstrap';
+import { UiBootstrapAppModule } from '@lens/ui/bootstrap/app';
 
-import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+const routes = [
+  {
+    path: '',
+    component: FullLayoutComponent,
+    children: [ 
+      { path: '', component: DashboardComponent }
+    ]
+  }
+]
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [DashboardComponent],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    UiBootstrapAppModule.using({ rootRoutes: routes })
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

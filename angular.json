@@ -1,6 +1,56 @@
 {
   "version": 1,
   "projects": {
+    "core-app": {
+      "projectType": "library",
+      "root": "libs/core/app",
+      "sourceRoot": "libs/core/app/src",
+      "prefix": "lotr",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/app"],
+          "options": {
+            "jestConfig": "libs/core/app/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/app/src/**/*.ts",
+              "libs/core/app/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "core-lib": {
+      "projectType": "library",
+      "root": "libs/core/lib",
+      "sourceRoot": "libs/core/lib/src",
+      "prefix": "lotr",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/lib"],
+          "options": {
+            "jestConfig": "libs/core/lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/lib/src/**/*.ts",
+              "libs/core/lib/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "lotr-books": {
       "projectType": "application",
       "root": "apps/lotr-books",
@@ -187,6 +237,56 @@
           "options": {
             "jestConfig": "apps/lotr-movies/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-bootstrap": {
+      "projectType": "library",
+      "root": "libs/ui/bootstrap",
+      "sourceRoot": "libs/ui/bootstrap/src",
+      "prefix": "lotr",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/bootstrap"],
+          "options": {
+            "jestConfig": "libs/ui/bootstrap/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/bootstrap/src/**/*.ts",
+              "libs/ui/bootstrap/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-bootstrap-app": {
+      "projectType": "library",
+      "root": "libs/ui/bootstrap-app",
+      "sourceRoot": "libs/ui/bootstrap-app/src",
+      "prefix": "lotr",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/bootstrap-app"],
+          "options": {
+            "jestConfig": "libs/ui/bootstrap-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/bootstrap-app/src/**/*.ts",
+              "libs/ui/bootstrap-app/src/**/*.html"
+            ]
           }
         }
       }

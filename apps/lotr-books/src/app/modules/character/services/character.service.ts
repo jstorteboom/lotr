@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SettingsService } from '@lens/core/lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiResult } from '../../../models';
-import { SettingsService } from '../../../services/settings.service';
 import { CharacterListItem } from '../models';
 
 @Injectable({

@@ -27,10 +27,22 @@
     ]
   },
   "projects": {
+    "core-app": {
+      "tags": []
+    },
+    "core-lib": {
+      "tags": []
+    },
     "lotr-books": {
       "tags": []
     },
     "lotr-movies": {
+      "tags": []
+    },
+    "ui-bootstrap": {
+      "tags": []
+    },
+    "ui-bootstrap-app": {
       "tags": []
     }
   }
