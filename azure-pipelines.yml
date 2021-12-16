@@ -12,8 +12,8 @@ jobs:
       lens-build-agent
     steps:
       - script: npm i
-      - script: -|
+      - bash: -|
           affected=$(npx nx print-affected --base=HEAD~1 --select=projects)
           echo "##vso[task.setvariable variable=affected]$affected"
-      - script: echo "$(affected)"
-      - script: npx nx affected --target=build --base=HEAD~2
+      - bash: echo "$(affected)"
+      - bash: npx nx affected --target=build --base=HEAD~3
