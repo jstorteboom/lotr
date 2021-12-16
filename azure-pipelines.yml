@@ -14,4 +14,4 @@ jobs:
       - script: npm i
       - bash: affected=$(npx nx print-affected --base=HEAD~1 --select=projects) | echo "##vso[task.setvariable variable=affected]$affected"
       - bash: echo "$(affected)"
-      - bash: npx nx affected --target=build --base=HEAD~3
+      - bash: npx nx affected --target=build --base=HEAD~5
