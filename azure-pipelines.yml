@@ -11,5 +11,6 @@ jobs:
     pool:
       lens-build-agent
     steps:
-    - script: npm i
-    - script: npx nx affected --target=build --base=HEAD~1
+      - script: npm i
+      - script: npx nx affected:apps --base=HEAD~1
+      - script: npx nx affected --target=build --base=HEAD~1
