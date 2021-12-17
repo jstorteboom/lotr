@@ -1,6 +1,6 @@
 ### Remember what projects were affected
 affected=$(npx nx print-affected --base=HEAD~10 --select=projects)
-echo $affected
+echo "Affected are: $affected"
 echo "##vso[task.setvariable variable=affected;]$affected"
 
 ### Build the affected projects
