@@ -27,7 +27,9 @@ jobs:
       - ${{each project in parameters.projects}}:
         - task: Docker@2
           condition: contains(variables['affected'], '${{project}}')
-          name: "build_${{replace($(project), '-'', '_')}}_image"
+          variables:
+            taskName: "build_${{replace($(project), '-'', '_')}}_image}}"
+          name: $(taskName)
           inputs:
             repository: '${{project}}'
             command: 'build'
