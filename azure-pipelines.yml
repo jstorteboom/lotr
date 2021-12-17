@@ -12,4 +12,6 @@ jobs:
       lens-build-agent
     steps:
       - script: npm i
-      - bash: ./build.sh
+      - task: Bash@3
+        inputs:
+          filePath: './build.sh'
