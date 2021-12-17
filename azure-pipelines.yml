@@ -30,26 +30,26 @@ jobs:
             # echo "$(affected)"
             echo "would be affected"
       - ${{each project in parameters.projects}}:
-        - task: Bash@3
-          inputs:
-            targetType: 'inline'
-            script: |
-              # Write your commands here
-              echo "$(affected) contains ${{project}} = ${{contains($(affected), ${{project}})}}"
-        - task: Bash@3
-          condition: contains($(affected), ${{project}})
-          inputs:
-            targetType: 'inline'
-            script: |
-              # Write your commands here
-              echo "Build image for ${{project}}"
-        - task: Bash@3
-          condition: not(contains($(affected), ${{project}}))
-          inputs:
-            targetType: 'inline'
-            script: |
-              # Write your commands here
-              echo "NOT build image for ${{project}}"
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            echo "$(affected) contains ${{project}} = ${{contains($(affected), project)}}"
+      - task: Bash@3
+        condition: contains($(affected), ${{project}})
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            echo "Build image for ${{project}}"
+      - task: Bash@3
+        condition: not(contains($(affected), ${{project}}))
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your commands here
+            echo "NOT build image for ${{project}}"
               
       # - task: Docker@2
       #   inputs:
