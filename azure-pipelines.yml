@@ -29,17 +29,15 @@ jobs:
           condition: contains(variables['affected'], '${{project}}')
           inputs:
             targetType: 'inline'
-            script: |
-              # Write your commands here
-              echo "Build image for ${{project}}"
+            script: echo "Build image for ${{project}}"
         - task: Docker@2
           condition: contains(variables['affected'], '${{project}}')
           inputs:
             repository: '${{project}}'
             command: 'build'
             Dockerfile: './Dockerfile'
-            arguments: '--build-arg project=${{project}}'
             buildContext: '.'
-            tags:
+            tags: |
               $(image-tag)
               ${{ format('{0}{1}{2}{3}{4}{5}{6}', variables['Build.SourceVersion'][0], variables['Build.SourceVersion'][1], variables['Build.SourceVersion'][2], variables['Build.SourceVersion'][3], variables['Build.SourceVersion'][4], variables['Build.SourceVersion'][5], variables['Build.SourceVersion'][6]) }}
+            arguments: '--build-arg project=${{project}}'
