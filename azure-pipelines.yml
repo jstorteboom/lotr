@@ -20,6 +20,7 @@ jobs:
     steps:
       - script: npm i
       - task: Bash@3
+        name: "nx_affected"
         inputs:
           filePath: './build.sh'
       - ${{each project in parameters.projects}}:
@@ -41,7 +42,7 @@ jobs:
             repository: '${{project}}'
             command: 'build'
             Dockerfile: './Dockerfile'
-            arguments: 'project=${project}'
+            arguments: '--build-arg project=${project}'
             buildContext: '.'
             tags:
               $(image-tag)
