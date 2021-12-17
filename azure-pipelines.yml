@@ -37,14 +37,14 @@ jobs:
               # Write your commands here
               echo "Does $(affected) contain ${{project}}?"
         - task: Bash@3
-          condition: contains([variables.affected], '${{project}}')
+          condition: contains(variables['affected'], '${{project}}')
           inputs:
             targetType: 'inline'
             script: |
               # Write your commands here
               echo "Build image for ${{project}}"
         - task: Bash@3
-          condition: not(contains([variables.affected], '${{project}}'))
+          condition: not(contains(variables['affected'], '${{project}}'))
           inputs:
             targetType: 'inline'
             script: |
