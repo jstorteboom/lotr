@@ -5,22 +5,38 @@
 
 trigger:
   - main
-  
+
+parameters:
+  - name: projects
+    type: object
+    default:
+    - lotr-books
+    - lotr-movies
+    
 jobs:
   - job:  
     pool:
       lens-build-agent
     steps:
-      - script: npm i
-      - task: Bash@3
-        inputs:
-          filePath: './build.sh'
+      # - script: npm i
+      # - task: Bash@3
+      #   inputs:
+      #     filePath: './build.sh'
       - task: Bash@3
         inputs:
           targetType: 'inline'
           script: |
             # Write your commands here
-            echo "$(affected)"
+            # echo "$(affected)"
+            echo "would be affected"
+      - ${{each project in parameters.projects}}:
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script: |
+              # Write your commands here
+              echo "${{project}}"
+              
       # - task: Docker@2
       #   inputs:
       #     command: 'build'
