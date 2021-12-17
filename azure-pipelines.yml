@@ -25,13 +25,9 @@ jobs:
           filePath: './build.sh'
           arguments: '$(base)'
       - ${{each project in parameters.projects}}:
-        - task: Bash@3
-          condition: contains(variables['affected'], '${{project}}')
-          inputs:
-            targetType: 'inline'
-            script: echo "Build image for ${{project}}"
         - task: Docker@2
           condition: contains(variables['affected'], '${{project}}')
+          name: "build-${{project}}-image"
           inputs:
             repository: '${{project}}'
             command: 'build'
