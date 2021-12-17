@@ -1,6 +1,7 @@
 ### Remember what projects were affected
 affected=$(npx nx print-affected --base=HEAD~5 --select=projects)
 echo $affected
+echo "##vso[task.setvariable variable=affected;]$affected"
 
 ### Build the affected projects
 npx nx affected --target=build --base=HEAD~5
@@ -13,6 +14,6 @@ do
     dockerFile="./apps/$i/Dockerfile"
     if test -f "$dockerFile"; then
         echo "Build image for $dockerFile"
-        docker build apps/$i
+        # docker build -f $dockerFile -t "$i:dev-latest" .
     fi
 done

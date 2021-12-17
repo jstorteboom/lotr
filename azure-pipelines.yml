@@ -4,18 +4,25 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
-
-jobs:
-  - job:  
-    pool:
-      lens-build-agent
-    steps:
-      - script: npm i
-      - task: Bash@3
-        inputs:
-          filePath: './build.sh'
-      - task: Docker@2
-        inputs:
-          command: 'build'
-          Dockerfile: 'apps/lotr-books/Dockerfile'
+  - main
+  
+  jobs:
+    - job:  
+      pool:
+        lens-build-agent
+      steps:
+        - script: npm i
+        - task: Bash@3
+          inputs:
+            filePath: './build.sh'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script: |
+              # Write your commands here
+              echo '$affected'
+        # - task: Docker@2
+        #   inputs:
+        #     command: 'build'
+        #     Dockerfile: 'apps/lotr-books/Dockerfile'
+        #     buildContext: '.'
