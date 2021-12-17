@@ -15,3 +15,7 @@ jobs:
       - task: Bash@3
         inputs:
           filePath: './build.sh'
+      - task: Docker@2
+        inputs:
+          command: 'build'
+          Dockerfile: 'apps/lotr-books/Dockerfile'
