@@ -20,7 +20,7 @@ jobs:
           targetType: 'inline'
           script: |
             # Write your commands here
-            echo '$affected'
+            echo $affected
       # - task: Docker@2
       #   inputs:
       #     command: 'build'
