@@ -1,10 +1,10 @@
 ### Remember what projects were affected
-affected=$(npx nx print-affected --base=4fbbfd9  --select=projects)
+affected=$(npx nx print-affected --base=$1 --select=projects)
 echo "Affected are: $affected"
 echo "##vso[task.setvariable variable=affected;]$affected"
 
 ### Build the affected projects
-npx nx affected --target=build --base=4fbbfd9 
+npx nx affected --target=build --base=$1
 
 ### Loop through the affected projects and build containers of them
 IFS=','

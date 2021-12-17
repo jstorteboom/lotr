@@ -23,13 +23,8 @@ jobs:
         name: "nx_affected"
         inputs:
           filePath: './build.sh'
+          arguments: '$(base)'
       - ${{each project in parameters.projects}}:
-        - task: Bash@3
-          inputs:
-            targetType: 'inline'
-            script: |
-              # Write your commands here
-              echo "Does $(affected) contain ${{project}}?"
         - task: Bash@3
           condition: contains(variables['affected'], '${{project}}')
           inputs:
@@ -46,3 +41,4 @@ jobs:
             buildContext: '.'
             tags:
               $(image-tag)
+              ${{ format('{0}{1}{2}{3}{4}{5}{6}', variables['Build.SourceVersion'][0], variables['Build.SourceVersion'][1], variables['Build.SourceVersion'][2], variables['Build.SourceVersion'][3], variables['Build.SourceVersion'][4], variables['Build.SourceVersion'][5], variables['Build.SourceVersion'][6]) }}
