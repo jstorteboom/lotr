@@ -42,7 +42,7 @@ jobs:
             repository: '${{project}}'
             command: 'build'
             Dockerfile: './Dockerfile'
-            arguments: '--build-arg project=${project}'
+            arguments: '--build-arg project=${{project}}'
             buildContext: '.'
             tags:
               $(image-tag)
