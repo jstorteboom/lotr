@@ -27,7 +27,7 @@ jobs:
       - ${{each project in parameters.projects}}:
         - task: Docker@2
           condition: contains(variables['affected'], '${{project}}')
-          name: Build_docker_image
+          displayName: Build_docker_image
           inputs:
             repository: '${{project}}'
             command: 'build'
