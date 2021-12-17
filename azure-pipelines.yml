@@ -18,10 +18,10 @@ jobs:
     pool:
       lens-build-agent
     steps:
-      # - script: npm i
-      # - task: Bash@3
-      #   inputs:
-      #     filePath: './build.sh'
+      - script: npm i
+      - task: Bash@3
+        inputs:
+          filePath: './build.sh'
       - task: Bash@3
         inputs:
           targetType: 'inline'
