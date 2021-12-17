@@ -40,7 +40,8 @@ jobs:
           inputs:
             repository: '${{project}}'
             command: 'build'
-            Dockerfile: 'apps/${{project}}/Dockerfile'
+            Dockerfile: './Dockerfile'
+            arguments: 'project=${project}'
             buildContext: '.'
             tags:
-              dev-latest
+              $(image-tag)
